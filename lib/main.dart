@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import './questao.dart';
+import './resposta.dart';
 
 main() => runApp(PerguntaApp());
 
@@ -20,6 +21,12 @@ class _PerguntaAppstate extends State<PerguntaApp> {
       'Qual é o seu endereço?',
       'Qual é a sua casa?',
     ];
+    final respostas = [
+      'Resposta 1',
+      'Resposta 2',
+      'Resposta 3',
+      'Resposta 4',
+    ];
 
     return MaterialApp(
       home: Scaffold(
@@ -30,18 +37,10 @@ class _PerguntaAppstate extends State<PerguntaApp> {
           children: [
             Text('Olá Flutter!!!'),
             Questao(perguntas[_perguntaSelecionada]),
-            ElevatedButton(
-              onPressed: _responder,
-              child: Text('Resposta 1'),
-            ),
-            ElevatedButton(
-              child: Text('Resposta 2'),
-              onPressed: _responder,
-            ),
-            ElevatedButton(
-              child: Text('Resposta 3'),
-              onPressed: _responder,
-            ),
+            Resposta(respostas[0]),
+            Resposta(respostas[1]),
+            Resposta(respostas[2]),
+            Resposta(respostas[3]),
           ],
         ),
       ),
