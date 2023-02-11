@@ -10,7 +10,7 @@ class _PerguntaAppstate extends State<PerguntaApp> {
     setState(() {
       _perguntaSelecionada++;
     });
-    print(_perguntaSelecionada);
+    // print(_perguntaSelecionada);
   }
 
   @override
@@ -37,10 +37,10 @@ class _PerguntaAppstate extends State<PerguntaApp> {
           children: [
             Text('Olá Flutter!!!'),
             Questao(perguntas[_perguntaSelecionada]),
-            Resposta(respostas[0]),
-            Resposta(respostas[1]),
-            Resposta(respostas[2]),
-            Resposta(respostas[3]),
+            Resposta(respostas[0], _responder),
+            Resposta(respostas[1], _responder),
+            Resposta(respostas[2], _responder),
+            Resposta(respostas[3], _responder),
           ],
         ),
       ),
