@@ -18,27 +18,34 @@ class _PerguntaAppstate extends State<PerguntaApp> {
     final perguntas = [
       {
         'texto': 'Qual é a sua cor favorita?',
-        'resposta': ['Preto', 'Vermelho', 'Verde', 'Branco']
+        'respostas': ['Preto', 'Vermelho', 'Verde', 'Branco']
       },
       {
         'texto': 'Qual é o seu animal favorito?',
-        'resposta': ['Coellho', 'Cobra', 'Elefante', 'Leão']
+        'respostas': ['Coellho', 'Cobra', 'Elefante', 'Leão']
       },
       {
         'texto': 'Qual é o seu endereço?',
-        'resposta': ['Bayeux', 'João Pessoa', 'Campina', 'Caja']
+        'respostas': ['Bayeux', 'João Pessoa', 'Campina']
       },
       {
         'texto': 'Qual é a seu Instrutor Favorito?',
-        'resposta': ['Maria', 'João', 'Leo', 'Pedro']
+        'respostas': ['Maria', 'João', 'Leo', 'Pedro']
       }
     ];
-    final respostas = [
-      'Resposta 1',
-      'Resposta 2',
-      'Resposta 3',
-      'Resposta 4',
-    ];
+
+    // final respostas = [
+    //   'Resposta 1',
+    //   'Resposta 2',
+    //   'Resposta 3',
+    //   'Resposta 4',
+    // ];
+
+    List<Widget> respostas = [];
+
+    for (var textoResp in perguntas[_perguntaSelecionada].cast()['respostas']) {
+      respostas.add(Resposta(textoResp, _responder));
+    }
 
     return MaterialApp(
       home: Scaffold(
@@ -49,10 +56,7 @@ class _PerguntaAppstate extends State<PerguntaApp> {
           children: [
             Text('Olá Flutter!!!'),
             Questao(perguntas[_perguntaSelecionada]['texto'].toString()),
-            Resposta(respostas[0], _responder),
-            Resposta(respostas[1], _responder),
-            Resposta(respostas[2], _responder),
-            Resposta(respostas[3], _responder),
+            ...respostas,
           ],
         ),
       ),
