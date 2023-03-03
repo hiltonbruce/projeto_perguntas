@@ -6,52 +6,54 @@ main() => runApp(PerguntaApp());
 
 class _PerguntaAppstate extends State<PerguntaApp> {
   var _perguntaSelecionada = 0;
+  var _pontuacaoTotal = 0;
 
   final _perguntas = const [
     {
       'texto': 'Qual é a sua cor favorita?',
       'respostas': [
-        {'texto': 'Preto', 'nota': 5},
-        {'texto': 'Vermelho', 'nota': 1},
-        {'texto': 'Verde', 'nota': 8},
-        {'texto': 'Branco', 'nota': 10},
+        {'texto': 'Preto', 'pontuacao': 5},
+        {'texto': 'Vermelho', 'pontuacao': 1},
+        {'texto': 'Verde', 'pontuacao': 8},
+        {'texto': 'Branco', 'pontuacao': 10},
       ]
     },
     {
       'texto': 'Qual é o seu animal favorito?',
       'respostas': [
-        {'texto': 'Coellho', 'nota': 10},
-        {'texto': 'Cobra', 'nota': 5},
-        {'texto': 'Elefante', 'nota': 3},
-        {'texto': 'Leão', 'nota': 1},
+        {'texto': 'Coellho', 'pontuacao': 10},
+        {'texto': 'Cobra', 'pontuacao': 5},
+        {'texto': 'Elefante', 'pontuacao': 3},
+        {'texto': 'Leão', 'pontuacao': 1},
       ]
     },
     {
       'texto': 'Qual é o seu endereço?',
       'respostas': [
-        {'texto': 'Bayeux', 'nota': 10},
-        {'texto': 'João Pessoa', 'nota': 5},
-        {'texto': 'Campina', 'nota': 3},
+        {'texto': 'Bayeux', 'pontuacao': 10},
+        {'texto': 'João Pessoa', 'pontuacao': 5},
+        {'texto': 'Campina', 'pontuacao': 3},
       ]
     },
     {
       'texto': 'Qual é a seu Instrutor Favorito?',
       'respostas': [
-        {'texto': 'Leo', 'nota': 10},
-        {'texto': 'Maria', 'nota': 5},
-        {'texto': 'João', 'nota': 3},
-        {'texto': 'Pedro', 'nota': 1},
+        {'texto': 'Leo', 'pontuacao': 10},
+        {'texto': 'Maria', 'pontuacao': 5},
+        {'texto': 'João', 'pontuacao': 3},
+        {'texto': 'Pedro', 'pontuacao': 1},
       ]
     }
   ];
 
-  void _responder() {
+  void _responder(int pontuacao) {
     if (temPerguntaSelecionada) {
       setState(() {
         _perguntaSelecionada++;
+        _pontuacaoTotal += pontuacao;
       });
     }
-    // print(_perguntaSelecionada);
+    print(_pontuacaoTotal);
   }
 
   bool get temPerguntaSelecionada {
