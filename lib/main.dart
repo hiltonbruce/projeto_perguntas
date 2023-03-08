@@ -21,20 +21,20 @@ class _PerguntaAppstate extends State<PerguntaApp> {
     {
       'texto': 'Qual é o seu animal favorito?',
       'respostas': [
-        {'texto': 'Coellho', 'pontuacao': 10},
+        {'texto': 'Leão', 'pontuacao': 10},
         {'texto': 'Cobra', 'pontuacao': 5},
         {'texto': 'Elefante', 'pontuacao': 3},
-        {'texto': 'Leão', 'pontuacao': 1},
+        {'texto': 'Coellho', 'pontuacao': 1},
       ]
     },
-    {
-      'texto': 'Qual é o seu endereço?',
-      'respostas': [
-        {'texto': 'Bayeux', 'pontuacao': 10},
-        {'texto': 'João Pessoa', 'pontuacao': 5},
-        {'texto': 'Campina', 'pontuacao': 3},
-      ]
-    },
+    // {
+    //   'texto': 'Qual é o seu endereço?',
+    //   'respostas': [
+    //     {'texto': 'Bayeux', 'pontuacao': 10},
+    //     {'texto': 'João Pessoa', 'pontuacao': 5},
+    //     {'texto': 'Campina', 'pontuacao': 3},
+    //   ]
+    // },
     {
       'texto': 'Qual é a seu Instrutor Favorito?',
       'respostas': [
@@ -72,7 +72,7 @@ class _PerguntaAppstate extends State<PerguntaApp> {
                 perguntas: _perguntas,
                 perguntaSelecionada: _perguntaSelecionada,
                 quandoResponder: _responder)
-            : Resultado(),
+            : Resultado(_pontuacaoTotal),
       ),
     );
   }
