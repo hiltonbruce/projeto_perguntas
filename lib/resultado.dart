@@ -5,8 +5,9 @@ class Resultado extends StatelessWidget {
   // Resultado(this.texto);
 
   final int pontuacao;
+  final void Function() quandoReiniciarQuestionario;
 
-  Resultado(this.pontuacao);
+  Resultado(this.pontuacao, this.quandoReiniciarQuestionario);
 
   String get fraseResultado {
     if (pontuacao < 8) {
@@ -22,30 +23,49 @@ class Resultado extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Center(
-      child: Stack(
-        children: <Widget>[
-          // Stroked text as border.
-          Text(
-            fraseResultado,
+    return Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: <Widget>[
+        Center(
+          child: Stack(
+            children: <Widget>[
+              // Stroked text as border.
+              Text(
+                fraseResultado,
+                style: TextStyle(
+                  fontSize: 40,
+                  foreground: Paint()
+                    ..style = PaintingStyle.stroke
+                    ..strokeWidth = 6
+                    ..color = Colors.blue[700]!,
+                ),
+              ),
+              // Solid text as fill.
+              Text(
+                fraseResultado,
+                style: TextStyle(
+                  fontSize: 40,
+                  color: Colors.grey[300],
+                ),
+              ),
+            ],
+          ),
+        ),
+        TextButton(
+          onPressed: quandoReiniciarQuestionario,
+          child: Text(
+            'Reiniciar?',
             style: TextStyle(
-              fontSize: 40,
-              foreground: Paint()
-                ..style = PaintingStyle.stroke
-                ..strokeWidth = 6
-                ..color = Colors.blue[700]!,
+              color: Colors.white,
             ),
           ),
-          // Solid text as fill.
-          Text(
-            fraseResultado,
-            style: TextStyle(
-              fontSize: 40,
-              color: Colors.grey[300],
-            ),
+          style: TextButton.styleFrom(
+            backgroundColor: Colors.black,
+            elevation: 15,
+            shadowColor: Colors.grey,
           ),
-        ],
-      ),
+        ),
+      ],
     );
   }
 }
